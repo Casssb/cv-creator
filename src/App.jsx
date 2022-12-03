@@ -14,6 +14,7 @@ class App extends Component {
       phone: '',
       location: '',
       github: '',
+      site: '',
       skills: [],
       experience: [],
       courses: [],
@@ -23,10 +24,10 @@ class App extends Component {
     this.handleTextInput = this.handleTextInput.bind(this);
   }
 
-  handleTextInput(event, state) {
+  handleTextInput(event, stateKey) {
     const text = event.target.value;
     this.setState({
-      [state]: text,
+      [stateKey]: text,
     });
   }
 
