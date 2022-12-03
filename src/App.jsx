@@ -1,10 +1,40 @@
 import React, { Component } from 'react';
+import Form from './modules/form/Form';
+import Display from './modules/display/Display';
 
 class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      name: '',
+      role: '',
+      statement: '',
+      email: '',
+      phone: '',
+      location: '',
+      github: '',
+      skills: [],
+      experience: [],
+      courses: [],
+      education: [],
+    };
+
+    this.handleTextInput = this.handleTextInput.bind(this);
+  }
+
+  handleTextInput(event, state) {
+    const text = event.target.value;
+    this.setState({
+      [state]: text,
+    });
+  }
+
   render() {
     return (
-      <main className="h-screen flex justify-center items-center">
-        <h1 className="text-5xl font-bold text-red-700">Hello world!</h1>
+      <main className="container flex justify-between p-4 mx-auto bg-zinc-100">
+        <Form details={this.state} handleTextInput={this.handleTextInput} />
+        <Display details={this.state} />
       </main>
     );
   }
