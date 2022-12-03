@@ -6,6 +6,7 @@ const Header = (props) => {
     <header>
       <h1>{details.personal.name}</h1>
       <h2>{details.personal.role}</h2>
+      <p>{details.personal.statement}</p>
       <ul>
         <li>{details.personal.email}</li>
         <li>{details.personal.phone}</li>

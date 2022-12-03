@@ -21,9 +21,17 @@ class App extends Component {
       experience: [],
       courses: [],
       education: [],
+      isVisible: {
+        personal: true,
+        skills: true,
+        experience: true,
+        courses: true,
+        education: true,
+      },
     };
 
     this.handlePersonalInput = this.handlePersonalInput.bind(this);
+    this.toggleVisible = this.toggleVisible.bind(this);
   }
 
   handlePersonalInput(event, stateKey) {
@@ -36,10 +44,24 @@ class App extends Component {
     });
   }
 
+  toggleVisible(e, stateKey) {
+    e.preventDefault();
+    this.setState({
+      isVisible: {
+        ...this.state.isVisible,
+        [stateKey]: !this.state.isVisible[stateKey],
+      },
+    });
+  }
+
   render() {
     return (
       <main className="container flex justify-between gap-2 p-4 mx-auto bg-zinc-100">
-        <Form details={this.state} handlePersonalInput={this.handlePersonalInput} />
+        <Form
+          details={this.state}
+          handlePersonalInput={this.handlePersonalInput}
+          toggleVisible={this.toggleVisible}
+        />
         <Display details={this.state} />
       </main>
     );

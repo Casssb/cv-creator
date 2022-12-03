@@ -6,10 +6,14 @@ import Courses from './Courses';
 import Education from './Education';
 
 const Form = (props) => {
-  const { details, handlePersonalInput } = props;
+  const { details, handlePersonalInput, toggleVisible } = props;
   return (
-    <form className='w-1/2 p-1'>
-      <PersonalDetails details={details} handlePersonalInput={handlePersonalInput} />
+    <form className="w-1/2 p-1">
+      <PersonalDetails
+        details={details}
+        handlePersonalInput={handlePersonalInput}
+        toggleVisible={toggleVisible}
+      />
       <Skills />
       <Professional />
       <Courses />
