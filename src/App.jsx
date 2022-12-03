@@ -7,34 +7,39 @@ class App extends Component {
     super();
 
     this.state = {
-      name: '',
-      role: '',
-      statement: '',
-      email: '',
-      phone: '',
-      location: '',
-      github: '',
-      site: '',
+      personal: {
+        name: '',
+        role: '',
+        statement: '',
+        email: '',
+        phone: '',
+        location: '',
+        github: '',
+        site: '',
+      },
       skills: [],
       experience: [],
       courses: [],
       education: [],
     };
 
-    this.handleTextInput = this.handleTextInput.bind(this);
+    this.handlePersonalInput = this.handlePersonalInput.bind(this);
   }
 
-  handleTextInput(event, stateKey) {
+  handlePersonalInput(event, stateKey) {
     const text = event.target.value;
     this.setState({
-      [stateKey]: text,
+      personal: {
+        ...this.state.personal,
+        [stateKey]: text,
+      },
     });
   }
 
   render() {
     return (
-      <main className="container flex justify-between p-4 mx-auto bg-zinc-100">
-        <Form details={this.state} handleTextInput={this.handleTextInput} />
+      <main className="container flex justify-between gap-2 p-4 mx-auto bg-zinc-100">
+        <Form details={this.state} handlePersonalInput={this.handlePersonalInput} />
         <Display details={this.state} />
       </main>
     );
