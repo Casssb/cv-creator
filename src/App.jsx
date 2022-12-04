@@ -17,7 +17,7 @@ class App extends Component {
         github: '',
         site: '',
       },
-      skills: [],
+      skills: [{ skill: '', subSkill: '' }],
       experience: [],
       courses: [],
       education: [],
@@ -31,6 +31,9 @@ class App extends Component {
     };
 
     this.handlePersonalInput = this.handlePersonalInput.bind(this);
+    this.handleOtherInput = this.handleOtherInput.bind(this);
+    this.handleAdd = this.handleAdd.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
     this.toggleVisible = this.toggleVisible.bind(this);
   }
 
@@ -44,8 +47,43 @@ class App extends Component {
     });
   }
 
-  toggleVisible(e, stateKey) {
-    e.preventDefault();
+  handleOtherInput(event, stateKey, stateId, index) {
+    const text = event.target.value;
+    let category = [...this.state[stateId]];
+    let elemToUpdate = {
+      ...category[index],
+      [stateKey]: text,
+    };
+    category[index] = elemToUpdate;
+    this.setState({
+      [stateId]: category,
+    });
+  }
+
+  handleAdd(event, stateKey) {
+    event.preventDefault();
+    stateKey === 'skills' &&
+      this.setState({
+        [stateKey]: [
+          ...this.state[stateKey],
+          {
+            skill: '',
+            subSkill: '',
+          },
+        ],
+      });
+  }
+
+  handleDelete(event, stateKey, index) {
+    event.preventDefault();
+    const filtered = this.state[stateKey].filter((elem, i) => i !== index);
+    this.setState({
+      [stateKey]: filtered,
+    });
+  }
+
+  toggleVisible(event, stateKey) {
+    event.preventDefault();
     this.setState({
       isVisible: {
         ...this.state.isVisible,
@@ -56,11 +94,14 @@ class App extends Component {
 
   render() {
     return (
-      <main className="container flex justify-between gap-2 p-4 mx-auto bg-zinc-100">
+      <main className="container min-h-screen flex justify-between gap-2 p-4 mx-auto bg-zinc-100">
         <Form
           details={this.state}
           handlePersonalInput={this.handlePersonalInput}
+          handleOtherInput={this.handleOtherInput}
           toggleVisible={this.toggleVisible}
+          handleAdd={this.handleAdd}
+          handleDelete={this.handleDelete}
         />
         <Display details={this.state} />
       </main>

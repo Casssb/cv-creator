@@ -6,18 +6,44 @@ import Courses from './Courses';
 import Education from './Education';
 
 const Form = (props) => {
-  const { details, handlePersonalInput, toggleVisible } = props;
+  const {
+    details,
+    handlePersonalInput,
+    handleOtherInput,
+    toggleVisible,
+    handleAdd,
+    handleDelete,
+  } = props;
   return (
     <form className="w-1/2 p-1">
       <PersonalDetails
         details={details}
         handlePersonalInput={handlePersonalInput}
+
         toggleVisible={toggleVisible}
       />
-      <Skills />
-      <Professional />
-      <Courses />
-      <Education />
+      <Skills
+        details={details}
+        handleOtherInput={handleOtherInput}
+        toggleVisible={toggleVisible}
+        handleAdd={handleAdd}
+        handleDelete={handleDelete}
+      />
+      <Professional
+        details={details}
+        handleOtherInput={handleOtherInput}
+        toggleVisible={toggleVisible}
+      />
+      <Courses
+        details={details}
+        handleOtherInput={handleOtherInput}
+        toggleVisible={toggleVisible}
+      />
+      <Education
+        details={details}
+        handleOtherInput={handleOtherInput}
+        toggleVisible={toggleVisible}
+      />
     </form>
   );
 };
