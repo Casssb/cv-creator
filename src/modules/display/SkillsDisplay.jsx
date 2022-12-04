@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Skills = (props) => {
+const SkillsDisplay = (props) => {
   const { details } = props;
   return (
     <div>
@@ -14,4 +14,4 @@ const Skills = (props) => {
   );
 };
 
-export default Skills;
+export default SkillsDisplay;

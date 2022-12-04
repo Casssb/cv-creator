@@ -23,6 +23,9 @@ const Skills = (props) => {
       </div>
       {details.isVisible.skills && (
         <>
+          {details.skills.length === 0 && (
+            <AddButton stateKey={'skills'} handleAdd={handleAdd} />
+          )}
           {details.skills.map((skill, index) => (
             <>
               <Input
@@ -46,13 +49,12 @@ const Skills = (props) => {
                 {lastIndex === index && (
                   <AddButton stateKey={'skills'} handleAdd={handleAdd} />
                 )}
-                {index > 0 && (
-                  <DeleteButton
-                    stateKey={'skills'}
-                    index={index}
-                    handleDelete={handleDelete}
-                  />
-                )}
+
+                <DeleteButton
+                  stateKey={'skills'}
+                  index={index}
+                  handleDelete={handleDelete}
+                />
               </div>
             </>
           ))}

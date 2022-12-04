@@ -17,16 +17,16 @@ class App extends Component {
         github: '',
         site: '',
       },
-      skills: [{ skill: '', subSkill: '' }],
+      skills: [],
       experience: [],
       courses: [],
       education: [],
       isVisible: {
         personal: true,
-        skills: true,
-        experience: true,
-        courses: true,
-        education: true,
+        skills: false,
+        experience: false,
+        courses: false,
+        education: false,
       },
     };
 
@@ -60,17 +60,23 @@ class App extends Component {
     });
   }
 
+  chooseTemplate(stateKey) {
+    switch (stateKey) {
+      case 'skills':
+        return { skill: '', subSkill: '' };
+      case 'experience':
+        return { role: '', company: '', dates: '', description: '' };
+      case 'courses':
+        return { course: '', description: '' };
+      case 'education':
+        return { qualification: '', school: '', location: '', dates: '' };
+    }
+  }
+
   handleAdd(event, stateKey) {
     event.preventDefault();
-    stateKey === 'skills' &&
       this.setState({
-        [stateKey]: [
-          ...this.state[stateKey],
-          {
-            skill: '',
-            subSkill: '',
-          },
-        ],
+        [stateKey]: [...this.state[stateKey], this.chooseTemplate(stateKey)],
       });
   }
 

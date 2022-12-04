@@ -1,9 +1,15 @@
-import React from 'react'
+import React from 'react';
+import Input from './utils/Input';
+import Textarea from './utils/Textarea';
 import ToggleButton from './utils/ToggleButton';
+import AddButton from './utils/AddButton';
+import DeleteButton from './utils/DeleteButton';
 
 const Courses = (props) => {
-  const { details, toggleVisible } = props;
+  const { details, toggleVisible, handleOtherInput, handleAdd, handleDelete } =
+    props;
   const toggleState = details.isVisible.courses;
+  const lastIndex = details.courses.length - 1;
   return (
     <fieldset>
       <div className="flex justify-start gap-8">
@@ -18,10 +24,45 @@ const Courses = (props) => {
       </div>
       {details.isVisible.courses && (
         <>
+          {details.courses.length === 0 && (
+            <AddButton stateKey={'courses'} handleAdd={handleAdd} />
+          )}
+          {details.courses.map((course, index) => (
+            <>
+              <Input
+                name={'Course'}
+                handleInput={handleOtherInput}
+                stateKey={'course'}
+                stateId={'courses'}
+                index={index}
+                key={index}
+                value={details.courses[index].course}
+              />
+              <Textarea
+                name={'Description'}
+                handleInput={handleOtherInput}
+                stateKey={'description'}
+                stateId={'courses'}
+                index={index}
+                value={details.courses[index].description}
+              />
+              <div className="flex justify-start">
+                {lastIndex === index && (
+                  <AddButton stateKey={'courses'} handleAdd={handleAdd} />
+                )}
+
+                <DeleteButton
+                  stateKey={'courses'}
+                  index={index}
+                  handleDelete={handleDelete}
+                />
+              </div>
+            </>
+          ))}
         </>
       )}
     </fieldset>
   );
-}
+};
 
-export default Courses
+export default Courses;

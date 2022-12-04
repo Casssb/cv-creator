@@ -19,7 +19,6 @@ const Form = (props) => {
       <PersonalDetails
         details={details}
         handlePersonalInput={handlePersonalInput}
-
         toggleVisible={toggleVisible}
       />
       <Skills
@@ -33,16 +32,22 @@ const Form = (props) => {
         details={details}
         handleOtherInput={handleOtherInput}
         toggleVisible={toggleVisible}
+        handleAdd={handleAdd}
+        handleDelete={handleDelete}
       />
       <Courses
         details={details}
         handleOtherInput={handleOtherInput}
         toggleVisible={toggleVisible}
+        handleAdd={handleAdd}
+        handleDelete={handleDelete}
       />
       <Education
         details={details}
         handleOtherInput={handleOtherInput}
         toggleVisible={toggleVisible}
+        handleAdd={handleAdd}
+        handleDelete={handleDelete}
       />
     </form>
   );
