@@ -4,6 +4,7 @@ import Skills from './Skills';
 import Professional from './Professional';
 import Courses from './Courses';
 import Education from './Education';
+import Title from './Title';
 
 const Form = (props) => {
   const {
@@ -16,6 +17,7 @@ const Form = (props) => {
   } = props;
   return (
     <form className="w-1/2 p-1">
+      <Title />
       <PersonalDetails
         details={details}
         handlePersonalInput={handlePersonalInput}
