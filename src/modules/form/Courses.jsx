@@ -4,6 +4,7 @@ import Textarea from './utils/Textarea';
 import ToggleButton from './utils/ToggleButton';
 import AddButton from './utils/AddButton';
 import DeleteButton from './utils/DeleteButton';
+import uniqid from 'uniqid';
 
 const Courses = (props) => {
   const { details, toggleVisible, handleOtherInput, handleAdd, handleDelete } =
@@ -13,7 +14,7 @@ const Courses = (props) => {
   return (
     <fieldset>
       <div className="flex justify-start gap-8">
-        <legend className="mb-2 text-cyan-700 font-extrabold text-xl">
+        <legend className="mb-2 text-cyan-700 dark:text-cyan-500 font-extrabold text-xl">
           Courses
         </legend>
         <ToggleButton
@@ -28,7 +29,7 @@ const Courses = (props) => {
             <AddButton stateKey={'courses'} handleAdd={handleAdd} />
           )}
           {details.courses.map((course, index) => (
-            <>
+            <React.Fragment key={uniqid()}>
               <Input
                 name={'Course'}
                 handleInput={handleOtherInput}
@@ -57,7 +58,7 @@ const Courses = (props) => {
                   handleDelete={handleDelete}
                 />
               </div>
-            </>
+            </React.Fragment>
           ))}
         </>
       )}

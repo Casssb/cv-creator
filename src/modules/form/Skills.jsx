@@ -3,6 +3,7 @@ import Input from './utils/Input';
 import ToggleButton from './utils/ToggleButton';
 import AddButton from './utils/AddButton';
 import DeleteButton from './utils/DeleteButton';
+import uniqid from 'uniqid';
 
 const Skills = (props) => {
   const { details, toggleVisible, handleOtherInput, handleAdd, handleDelete } =
@@ -12,7 +13,7 @@ const Skills = (props) => {
   return (
     <fieldset>
       <div className="flex justify-start gap-8">
-        <legend className="mb-2 text-cyan-700 font-extrabold text-xl">
+        <legend className="mb-2 text-cyan-700 dark:text-cyan-500 font-extrabold text-xl">
           Skills
         </legend>
         <ToggleButton
@@ -27,7 +28,7 @@ const Skills = (props) => {
             <AddButton stateKey={'skills'} handleAdd={handleAdd} />
           )}
           {details.skills.map((skill, index) => (
-            <>
+            <React.Fragment key={uniqid()}>
               <Input
                 name={'Skill'}
                 handleInput={handleOtherInput}
@@ -56,7 +57,7 @@ const Skills = (props) => {
                   handleDelete={handleDelete}
                 />
               </div>
-            </>
+            </React.Fragment>
           ))}
         </>
       )}

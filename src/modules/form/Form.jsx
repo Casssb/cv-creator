@@ -1,6 +1,7 @@
 import React from 'react';
 import PersonalDetails from './PersonalDetails';
 import Skills from './Skills';
+import Projects from './Projects';
 import Professional from './Professional';
 import Courses from './Courses';
 import Education from './Education';
@@ -24,6 +25,13 @@ const Form = (props) => {
         toggleVisible={toggleVisible}
       />
       <Skills
+        details={details}
+        handleOtherInput={handleOtherInput}
+        toggleVisible={toggleVisible}
+        handleAdd={handleAdd}
+        handleDelete={handleDelete}
+      />
+      <Projects
         details={details}
         handleOtherInput={handleOtherInput}
         toggleVisible={toggleVisible}

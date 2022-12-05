@@ -9,7 +9,7 @@ const PersonalDetails = (props) => {
   return (
     <fieldset>
       <div className="flex justify-start gap-8">
-        <legend className="mb-2 text-cyan-700 font-extrabold text-xl">
+        <legend className="mb-2 text-cyan-700 dark:text-cyan-500 font-extrabold text-xl">
           Personal Details
         </legend>
         <ToggleButton

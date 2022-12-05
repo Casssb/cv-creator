@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { FaSun, FaMoon } from 'react-icons/fa';
-import { IconContext } from 'react-icons';
 
 const Title = () => {
   const [darkmode, setDarkmode] = useState(false);
@@ -17,8 +16,7 @@ const Title = () => {
   }, [darkmode]);
 
   return (
-    // <IconContext.Provider value={{ color: '#6b21a8', size: '1.5em' }}>
-    <div className="flex justify-start gap-10 mb-8">
+    <div className="flex justify-start gap-12 mb-8">
       <div className="flex justify-start gap-2">
         <span className="bg-purple-100 text-purple-800 text-3xl font-semibold px-2.5 py-0.5 rounded dark:bg-purple-200 dark:text-purple-800">
           CV
@@ -34,7 +32,6 @@ const Title = () => {
         {darkmode ? <FaMoon /> : <FaSun />}
       </button>
     </div>
-    // </IconContext.Provider>
   );
 };
 

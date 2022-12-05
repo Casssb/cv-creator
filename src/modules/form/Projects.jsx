@@ -6,81 +6,81 @@ import Input from './utils/Input';
 import Textarea from './utils/Textarea';
 import uniqid from 'uniqid';
 
-const Professional = (props) => {
+const Projects = (props) => {
   const { details, toggleVisible, handleOtherInput, handleAdd, handleDelete } =
     props;
-  const toggleState = details.isVisible.experience;
-  const lastIndex = details.experience.length - 1;
+  const toggleState = details.isVisible.projects;
+  const lastIndex = details.projects.length - 1;
   return (
     <fieldset>
       <div className="flex justify-start gap-8">
         <legend className="mb-2 text-cyan-700 dark:text-cyan-500 font-extrabold text-xl">
-          Professional Experience
+          Projects
         </legend>
         <ToggleButton
-          stateKey={'experience'}
+          stateKey={'projects'}
           toggleVisible={toggleVisible}
           toggleState={toggleState}
         />
       </div>
-      {details.isVisible.experience && (
-        <React.Fragment key={uniqid()}>
-          {details.experience.length === 0 && (
-            <AddButton stateKey={'experience'} handleAdd={handleAdd} />
+      {details.isVisible.projects && (
+        <>
+          {details.projects.length === 0 && (
+            <AddButton stateKey={'projects'} handleAdd={handleAdd} />
           )}
-          {details.experience.map((exp, index) => (
-            <>
+          {details.projects.map((exp, index) => (
+            <React.Fragment key={uniqid()}>
               <Input
-                name={'Role'}
+                name={'Title'}
                 handleInput={handleOtherInput}
-                stateKey={'role'}
-                stateId={'experience'}
+                stateKey={'title'}
+                stateId={'projects'}
                 index={index}
                 key={index}
-                value={details.experience[index].role}
+                value={details.projects[index].title}
               />
               <div className="grid md:grid-cols-2 md:gap-2 mt-4">
                 <Input
-                  name={'Company'}
+                  name={'Repo Link'}
                   handleInput={handleOtherInput}
-                  stateKey={'company'}
-                  stateId={'experience'}
+                  stateKey={'repo'}
+                  stateId={'projects'}
                   index={index}
-                  value={details.experience[index].company}
+                  value={details.projects[index].repo}
                 />
                 <Input
-                  name={'Dates'}
+                  name={'Live Link'}
                   handleInput={handleOtherInput}
-                  stateKey={'dates'}
-                  stateId={'experience'}
+                  stateKey={'live'}
+                  stateId={'projects'}
                   index={index}
-                  value={details.experience[index].dates}
+                  value={details.projects[index].live}
                 />
               </div>
               <Textarea
                 name={'Description'}
                 handleInput={handleOtherInput}
                 stateKey={'description'}
-                stateId={'experience'}
+                stateId={'projects'}
                 index={index}
-                value={details.experience[index].description}
+                value={details.projects[index].description}
               />
               <div className="flex justify-start">
                 {lastIndex === index && (
-                  <AddButton stateKey={'experience'} handleAdd={handleAdd} />
+                  <AddButton stateKey={'projects'} handleAdd={handleAdd} />
                 )}
                 <DeleteButton
-                  stateKey={'experience'}
+                  stateKey={'projects'}
                   index={index}
                   handleDelete={handleDelete}
                 />
               </div>
-            </>
+            </React.Fragment>
           ))}
-        </React.Fragment>
+        </>
       )}
     </fieldset>
   );
 };
 
-export default Professional;
+export default Projects;

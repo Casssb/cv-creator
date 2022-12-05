@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import Form from './modules/form/Form';
 import Display from './modules/display/Display';
+import { FaLaptopHouse } from 'react-icons/fa';
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       personal: {
@@ -18,12 +19,14 @@ class App extends Component {
         site: '',
       },
       skills: [],
+      projects: [],
       experience: [],
       courses: [],
       education: [],
       isVisible: {
         personal: true,
         skills: false,
+        projects: false,
         experience: false,
         courses: false,
         education: false,
@@ -64,6 +67,8 @@ class App extends Component {
     switch (stateKey) {
       case 'skills':
         return { skill: '', subSkill: '' };
+      case 'projects':
+        return { title: '', repo: '', live: '', description: '' };
       case 'experience':
         return { role: '', company: '', dates: '', description: '' };
       case 'courses':
@@ -75,9 +80,9 @@ class App extends Component {
 
   handleAdd(event, stateKey) {
     event.preventDefault();
-      this.setState({
-        [stateKey]: [...this.state[stateKey], this.chooseTemplate(stateKey)],
-      });
+    this.setState({
+      [stateKey]: [...this.state[stateKey], this.chooseTemplate(stateKey)],
+    });
   }
 
   handleDelete(event, stateKey, index) {
