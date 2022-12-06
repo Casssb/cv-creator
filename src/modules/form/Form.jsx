@@ -19,7 +19,7 @@ const Form = (props) => {
     appendDemoData,
   } = props;
   return (
-    <form className="w-1/2 p-1">
+    <form className="w-full sm:w-1/2 p-1">
       <Title resetStateData={resetStateData} appendDemoData={appendDemoData} />
       <PersonalDetails
         details={details}

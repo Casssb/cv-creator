@@ -17,8 +17,8 @@ const Title = (props) => {
   }, [darkmode]);
 
   return (
-    <div className="flex justify-start gap-12 mb-8">
-      <div className="flex justify-start gap-2">
+    <div className="flex flex-col lg:flex-row justify-start gap-6 lg:gap-4 mb-8">
+      <div className="flex justify-center sm:justify-start gap-2">
         <span className="bg-purple-100 text-purple-800 text-3xl font-semibold px-2.5 py-0.5 rounded dark:bg-purple-200 dark:text-purple-800">
           CV
         </span>
@@ -26,7 +26,7 @@ const Title = (props) => {
           Creator
         </h1>
       </div>
-      <div className="inline-flex rounded-md shadow-sm" role="group">
+      <div className="flex justify-center sm:justify-start rounded-md shadow-sm" role="group">
         <button
           onClick={(e) => toggleDarkmode(e)}
           className="inline-flex items-center py-2 px-4 text-sm font-medium text-purple-900 bg-transparent rounded-l-lg border border-purple-900 hover:bg-purple-900 hover:text-white focus:z-10  focus:ring-purple-500 focus:bg-purple-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-purple-700 dark:focus:bg-purple-700"
