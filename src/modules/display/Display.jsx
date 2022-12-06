@@ -7,15 +7,17 @@ import CoursesDisplay from './CoursesDisplay';
 import EducationDisplay from './EducationDisplay';
 
 const Display = (props) => {
-  const { details } = props;
+  const { details, pdfRef } = props;
   return (
-    <section className="bg-zinc-200 border-r-8 sticky top-4 w-full sm:w-1/2 p-1 h-full shadow-black shadow-md dark:shadow-white">
-      <Header details={details} />
-      <SkillsDisplay details={details} />
-      <ProjectsDisplay details={details} />
-      <ProfessionalDisplay details={details} />
-      <CoursesDisplay details={details} />
-      <EducationDisplay details={details} />
+    <section className="sticky top-4 w-full md:w-1/2 h-full shadow-black shadow-md dark:shadow-white">
+      <div ref={pdfRef} className=" w-full h-full bg-zinc-200 p-1">
+        <Header details={details} />
+        <SkillsDisplay details={details} />
+        <ProjectsDisplay details={details} />
+        <ProfessionalDisplay details={details} />
+        <CoursesDisplay details={details} />
+        <EducationDisplay details={details} />
+      </div>
     </section>
   );
 };

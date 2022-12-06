@@ -17,10 +17,17 @@ const Form = (props) => {
     handleDelete,
     resetStateData,
     appendDemoData,
+    createPdf,
+    pdfRef,
   } = props;
   return (
-    <form className="w-full sm:w-1/2 p-1">
-      <Title resetStateData={resetStateData} appendDemoData={appendDemoData} />
+    <form className="w-full md:w-1/2 p-1">
+      <Title
+        resetStateData={resetStateData}
+        appendDemoData={appendDemoData}
+        createPdf={createPdf}
+        pdfRef={pdfRef}
+      />
       <PersonalDetails
         details={details}
         handlePersonalInput={handlePersonalInput}

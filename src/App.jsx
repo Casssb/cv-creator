@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Form from './modules/form/Form';
 import Display from './modules/display/Display';
 import { reset, demo } from './modules/form/utils/StateData';
+import html2canvas from 'html2canvas';
+import { jsPDF } from 'jspdf';
 
 class App extends Component {
   constructor(props) {
@@ -40,6 +42,9 @@ class App extends Component {
     this.toggleVisible = this.toggleVisible.bind(this);
     this.resetStateData = this.resetStateData.bind(this);
     this.appendDemoData = this.appendDemoData.bind(this);
+    this.createPdf = this.createPdf.bind(this);
+
+    this.pdfRef = React.createRef();
   }
 
   handlePersonalInput(event, stateKey) {
@@ -114,9 +119,24 @@ class App extends Component {
     event.preventDefault();
   }
 
+  async createPdf(event, pdfRef) {
+    event.preventDefault();
+    const display = pdfRef.current;
+    const canvas = await html2canvas(display);
+    const data = canvas.toDataURL('image/png');
+
+    const pdf = new jsPDF();
+    const imgProperties = pdf.getImageProperties(data);
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
+
+    pdf.addImage(data, 'PNG', 0, 0, pdfWidth, pdfHeight);
+    pdf.save('print.pdf');
+  }
+
   render() {
     return (
-      <main className="container min-h-screen flex flex-col sm:flex-row sm:justify-between gap-2 p-4 mx-auto bg-zinc-100 dark:bg-zinc-900">
+      <main className="container min-h-screen flex flex-col md:flex-row sm:justify-between gap-2 p-4 mx-auto bg-zinc-100 dark:bg-zinc-900">
         <Form
           details={this.state}
           handlePersonalInput={this.handlePersonalInput}
@@ -126,8 +146,10 @@ class App extends Component {
           handleDelete={this.handleDelete}
           resetStateData={this.resetStateData}
           appendDemoData={this.appendDemoData}
+          createPdf={this.createPdf}
+          pdfRef={this.pdfRef}
         />
-        <Display details={this.state} />
+        <Display details={this.state} pdfRef={this.pdfRef} />
       </main>
     );
   }
