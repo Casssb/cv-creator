@@ -117,6 +117,7 @@ class App extends Component {
 
   appendDemoData(event) {
     event.preventDefault();
+    this.setState({ ...demo() });
   }
 
   async createPdf(event, pdfRef) {
