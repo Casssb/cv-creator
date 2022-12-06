@@ -136,7 +136,7 @@ class App extends Component {
 
   render() {
     return (
-      <main className="container min-h-screen flex flex-col md:flex-row sm:justify-between gap-2 p-4 mx-auto bg-zinc-100 dark:bg-zinc-900">
+      <main className="container min-h-screen flex flex-col md:flex-row md:justify-between gap-2 p-4 mx-auto bg-zinc-100 dark:bg-zinc-900">
         <Form
           details={this.state}
           handlePersonalInput={this.handlePersonalInput}
