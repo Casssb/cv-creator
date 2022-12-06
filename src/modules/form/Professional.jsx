@@ -4,7 +4,6 @@ import AddButton from './utils/AddButton';
 import DeleteButton from './utils/DeleteButton';
 import Input from './utils/Input';
 import Textarea from './utils/Textarea';
-import uniqid from 'uniqid';
 
 const Professional = (props) => {
   const { details, toggleVisible, handleOtherInput, handleAdd, handleDelete } =
@@ -29,7 +28,7 @@ const Professional = (props) => {
             <AddButton stateKey={'experience'} handleAdd={handleAdd} />
           )}
           {details.experience.map((exp, index) => (
-            <React.Fragment key={uniqid()}>
+            <React.Fragment key={index}>
               <Input
                 name={'Role'}
                 handleInput={handleOtherInput}

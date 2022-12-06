@@ -4,7 +4,6 @@ import AddButton from './utils/AddButton';
 import DeleteButton from './utils/DeleteButton';
 import Input from './utils/Input';
 import Textarea from './utils/Textarea';
-import uniqid from 'uniqid';
 
 const Projects = (props) => {
   const { details, toggleVisible, handleOtherInput, handleAdd, handleDelete } =
@@ -29,7 +28,7 @@ const Projects = (props) => {
             <AddButton stateKey={'projects'} handleAdd={handleAdd} />
           )}
           {details.projects.map((exp, index) => (
-            <React.Fragment key={uniqid()}>
+            <React.Fragment key={index}>
               <Input
                 name={'Title'}
                 handleInput={handleOtherInput}

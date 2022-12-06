@@ -3,7 +3,6 @@ import Input from './utils/Input';
 import ToggleButton from './utils/ToggleButton';
 import AddButton from './utils/AddButton';
 import DeleteButton from './utils/DeleteButton';
-import uniqid from 'uniqid';
 
 const Skills = (props) => {
   const { details, toggleVisible, handleOtherInput, handleAdd, handleDelete } =
@@ -28,7 +27,7 @@ const Skills = (props) => {
             <AddButton stateKey={'skills'} handleAdd={handleAdd} />
           )}
           {details.skills.map((skill, index) => (
-            <React.Fragment key={uniqid()}>
+            <React.Fragment key={index}>
               <Input
                 name={'Skill'}
                 handleInput={handleOtherInput}

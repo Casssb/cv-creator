@@ -3,7 +3,6 @@ import Input from './utils/Input';
 import ToggleButton from './utils/ToggleButton';
 import AddButton from './utils/AddButton';
 import DeleteButton from './utils/DeleteButton';
-import uniqid from 'uniqid';
 
 const Education = (props) => {
   const { details, toggleVisible, handleOtherInput, handleAdd, handleDelete } =
@@ -28,7 +27,7 @@ const Education = (props) => {
             <AddButton stateKey={'education'} handleAdd={handleAdd} />
           )}
           {details.education.map((skill, index) => (
-            <React.Fragment key={uniqid()}>
+            <React.Fragment key={index}>
               <div className="grid md:grid-cols-2 md:gap-2 mt-4">
                 <Input
                   name={'Qualification'}
