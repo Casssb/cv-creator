@@ -24,12 +24,12 @@ const Professional = (props) => {
         />
       </div>
       {details.isVisible.experience && (
-        <React.Fragment key={uniqid()}>
+        <>
           {details.experience.length === 0 && (
             <AddButton stateKey={'experience'} handleAdd={handleAdd} />
           )}
           {details.experience.map((exp, index) => (
-            <>
+            <React.Fragment key={uniqid()}>
               <Input
                 name={'Role'}
                 handleInput={handleOtherInput}
@@ -75,9 +75,9 @@ const Professional = (props) => {
                   handleDelete={handleDelete}
                 />
               </div>
-            </>
+            </React.Fragment>
           ))}
-        </React.Fragment>
+        </>
       )}
     </fieldset>
   );

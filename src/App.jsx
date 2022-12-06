@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Form from './modules/form/Form';
 import Display from './modules/display/Display';
-import { FaLaptopHouse } from 'react-icons/fa';
+import { reset, demo } from './modules/form/utils/StateData';
 
 class App extends Component {
   constructor(props) {
@@ -38,6 +38,8 @@ class App extends Component {
     this.handleAdd = this.handleAdd.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.toggleVisible = this.toggleVisible.bind(this);
+    this.resetStateData = this.resetStateData.bind(this);
+    this.appendDemoData = this.appendDemoData.bind(this);
   }
 
   handlePersonalInput(event, stateKey) {
@@ -103,6 +105,15 @@ class App extends Component {
     });
   }
 
+  resetStateData(event) {
+    event.preventDefault();
+    this.setState({ ...reset });
+  }
+
+  appendDemoData(event) {
+    event.preventDefault();
+  }
+
   render() {
     return (
       <main className="container min-h-screen flex justify-between gap-2 p-4 mx-auto bg-zinc-100 dark:bg-zinc-900">
@@ -113,6 +124,8 @@ class App extends Component {
           toggleVisible={this.toggleVisible}
           handleAdd={this.handleAdd}
           handleDelete={this.handleDelete}
+          resetStateData={this.resetStateData}
+          appendDemoData={this.appendDemoData}
         />
         <Display details={this.state} />
       </main>

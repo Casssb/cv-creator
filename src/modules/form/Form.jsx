@@ -15,10 +15,12 @@ const Form = (props) => {
     toggleVisible,
     handleAdd,
     handleDelete,
+    resetStateData,
+    appendDemoData,
   } = props;
   return (
     <form className="w-1/2 p-1">
-      <Title />
+      <Title resetStateData={resetStateData} appendDemoData={appendDemoData} />
       <PersonalDetails
         details={details}
         handlePersonalInput={handlePersonalInput}
