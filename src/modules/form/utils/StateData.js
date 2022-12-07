@@ -30,6 +30,7 @@ const reset = {
     location: '',
     github: '',
     site: '',
+    interests: '',
   },
   skills: [],
   projects: [],
@@ -57,6 +58,7 @@ const demo = () => {
       location: `${randCity()}, ${randCountry()}`,
       github: `github.com/${randAnimalType()}${randAnimalType()}`,
       site: `${randSubscriptionPlan()}${randAnimalType()}.com`,
+      interests: `I'm a long term animal riding aficionado. I like to ride ${randAnimalType()}'s, ${randAnimalType()}'s and especially ${randAnimalType()}'s. My dream is to have one day ridden every type of animal on gods green earth (although not ${randAnimalType()}'s, who rides them!)`,
     },
     skills: [
       {
@@ -87,14 +89,14 @@ const demo = () => {
         role: `${randFood()} ${randJobType()}`,
         location: randCity(),
         company: randCompanyName(),
-        dates: 'December 2015 - Present',
+        dates: 'Dec-2015 - Present',
         description: randPhrase(),
       },
       {
         role: `${randFood()} ${randJobType()}`,
         location: randCity(),
         company: randCompanyName(),
-        dates: 'July 2010 - November 2015',
+        dates: 'Jul-2010 - Nov-2015',
         description: randPhrase(),
       },
     ],
@@ -110,7 +112,7 @@ const demo = () => {
         qualification: `${randProductName()} ${randJobType()}`,
         school: `${randCity()} University`,
         location: `${randCity()}`,
-        dates: '2008 - 2011',
+        dates: '2008 - 2010',
       },
     ],
     isVisible: {

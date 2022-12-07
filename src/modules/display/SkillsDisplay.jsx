@@ -7,7 +7,7 @@ const SkillsDisplay = (props) => {
   return (
     <>
       {details.skills.length > 0 && (
-        <div className="grid grid-cols-2 pl-4 mt-2 gap-1">
+        <div className="grid grid-cols-2 pl-4 py-2 gap-1">
           <h3 className="flex items-center gap-2 font-bold col-span-full">
             <FaHeadSideVirus />
             Skills

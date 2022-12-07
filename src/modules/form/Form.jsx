@@ -6,6 +6,7 @@ import Professional from './Professional';
 import Courses from './Courses';
 import Education from './Education';
 import Title from './Title';
+import Interests from './Interests';
 
 const Form = (props) => {
   const {
@@ -67,6 +68,11 @@ const Form = (props) => {
         toggleVisible={toggleVisible}
         handleAdd={handleAdd}
         handleDelete={handleDelete}
+      />
+      <Interests
+        details={details}
+        handlePersonalInput={handlePersonalInput}
+        toggleVisible={toggleVisible}
       />
     </form>
   );

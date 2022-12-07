@@ -19,6 +19,7 @@ class App extends Component {
         location: '',
         github: '',
         site: '',
+        interests: '',
       },
       skills: [],
       projects: [],
@@ -32,6 +33,7 @@ class App extends Component {
         experience: false,
         courses: false,
         education: false,
+        interests: false,
       },
     };
 
