@@ -55,8 +55,8 @@ const demo = () => {
       email: randEmail(),
       phone: randPhoneNumber(),
       location: `${randCity()}, ${randCountry()}`,
-      github: `https://github.com/${randAnimalType()}${randAnimalType()}`,
-      site: `www.${randSubscriptionPlan()}${randAnimalType()}.com`,
+      github: `github.com/${randAnimalType()}${randAnimalType()}`,
+      site: `${randSubscriptionPlan()}${randAnimalType()}.com`,
     },
     skills: [
       {
@@ -71,13 +71,13 @@ const demo = () => {
     projects: [
       {
         title: `${randMusicGenre()} ${randJobArea()} App`,
-        repo: `https://github.com/${randAnimalType()}${randAnimalType()}`,
+        repo: `github.com/${randAnimalType()}${randAnimalType()}`,
         live: `${randVehicleFuel()}${randAnimalType()}.com`,
         description: randCatchPhrase(),
       },
       {
         title: `${randMusicGenre()} ${randJobArea()} App`,
-        repo: `https://github.com/${randAnimalType()}${randAnimalType()}`,
+        repo: `github.com/${randAnimalType()}${randAnimalType()}`,
         live: `${randVehicleFuel()}${randAnimalType()}.com`,
         description: randCatchPhrase(),
       },
@@ -85,12 +85,14 @@ const demo = () => {
     experience: [
       {
         role: `${randFood()} ${randJobType()}`,
+        location: randCity(),
         company: randCompanyName(),
         dates: 'December 2015 - Present',
         description: randPhrase(),
       },
       {
         role: `${randFood()} ${randJobType()}`,
+        location: randCity(),
         company: randCompanyName(),
         dates: 'July 2010 - November 2015',
         description: randPhrase(),

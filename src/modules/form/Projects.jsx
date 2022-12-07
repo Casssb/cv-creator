@@ -29,15 +29,17 @@ const Projects = (props) => {
           )}
           {details.projects.map((exp, index) => (
             <React.Fragment key={index}>
-              <Input
-                name={'Title'}
-                handleInput={handleOtherInput}
-                stateKey={'title'}
-                stateId={'projects'}
-                index={index}
-                key={index}
-                value={details.projects[index].title}
-              />
+              <div className="mt-4">
+                <Input
+                  name={'Title'}
+                  handleInput={handleOtherInput}
+                  stateKey={'title'}
+                  stateId={'projects'}
+                  index={index}
+                  key={index}
+                  value={details.projects[index].title}
+                />
+              </div>
               <div className="grid md:grid-cols-2 md:gap-2 mt-4">
                 <Input
                   name={'Repo Link'}

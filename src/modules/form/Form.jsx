@@ -21,7 +21,7 @@ const Form = (props) => {
     pdfRef,
   } = props;
   return (
-    <form className="w-full md:w-1/2 p-1">
+    <form className="w-full lg:w-2/5 p-1">
       <Title
         resetStateData={resetStateData}
         appendDemoData={appendDemoData}

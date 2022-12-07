@@ -77,7 +77,13 @@ class App extends Component {
       case 'projects':
         return { title: '', repo: '', live: '', description: '' };
       case 'experience':
-        return { role: '', company: '', dates: '', description: '' };
+        return {
+          role: '',
+          location: '',
+          company: '',
+          dates: '',
+          description: '',
+        };
       case 'courses':
         return { course: '', description: '' };
       case 'education':
@@ -137,7 +143,7 @@ class App extends Component {
 
   render() {
     return (
-      <main className="container min-h-screen flex flex-col md:flex-row md:justify-between gap-2 p-4 mx-auto bg-zinc-100 dark:bg-zinc-900">
+      <main className="container min-h-screen flex flex-col lg:flex-row lg:justify-between gap-2 p-4 mx-auto bg-zinc-100 dark:bg-zinc-900">
         <Form
           details={this.state}
           handlePersonalInput={this.handlePersonalInput}

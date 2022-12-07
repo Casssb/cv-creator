@@ -29,23 +29,25 @@ const Courses = (props) => {
           )}
           {details.courses.map((course, index) => (
             <React.Fragment key={index}>
-              <Input
-                name={'Course'}
-                handleInput={handleOtherInput}
-                stateKey={'course'}
-                stateId={'courses'}
-                index={index}
-                key={index}
-                value={details.courses[index].course}
-              />
-              <Textarea
-                name={'Description'}
-                handleInput={handleOtherInput}
-                stateKey={'description'}
-                stateId={'courses'}
-                index={index}
-                value={details.courses[index].description}
-              />
+              <div className="mt-4">
+                <Input
+                  name={'Course'}
+                  handleInput={handleOtherInput}
+                  stateKey={'course'}
+                  stateId={'courses'}
+                  index={index}
+                  key={index}
+                  value={details.courses[index].course}
+                />
+                <Textarea
+                  name={'Description'}
+                  handleInput={handleOtherInput}
+                  stateKey={'description'}
+                  stateId={'courses'}
+                  index={index}
+                  value={details.courses[index].description}
+                />
+              </div>
               <div className="flex justify-start">
                 {lastIndex === index && (
                   <AddButton stateKey={'courses'} handleAdd={handleAdd} />

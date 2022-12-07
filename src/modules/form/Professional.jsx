@@ -29,16 +29,25 @@ const Professional = (props) => {
           )}
           {details.experience.map((exp, index) => (
             <React.Fragment key={index}>
-              <Input
-                name={'Role'}
-                handleInput={handleOtherInput}
-                stateKey={'role'}
-                stateId={'experience'}
-                index={index}
-                key={index}
-                value={details.experience[index].role}
-              />
               <div className="grid md:grid-cols-2 md:gap-2 mt-4">
+                <Input
+                  name={'Role'}
+                  handleInput={handleOtherInput}
+                  stateKey={'role'}
+                  stateId={'experience'}
+                  index={index}
+                  key={index}
+                  value={details.experience[index].role}
+                />
+                <Input
+                  name={'Location'}
+                  handleInput={handleOtherInput}
+                  stateKey={'location'}
+                  stateId={'experience'}
+                  index={index}
+                  key={index}
+                  value={details.experience[index].location}
+                />
                 <Input
                   name={'Company'}
                   handleInput={handleOtherInput}

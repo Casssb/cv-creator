@@ -28,23 +28,25 @@ const Skills = (props) => {
           )}
           {details.skills.map((skill, index) => (
             <React.Fragment key={index}>
-              <Input
-                name={'Skill'}
-                handleInput={handleOtherInput}
-                stateKey={'skill'}
-                stateId={'skills'}
-                index={index}
-                key={index}
-                value={details.skills[index].skill}
-              />
-              <Input
-                name={'Sub-Skills'}
-                handleInput={handleOtherInput}
-                stateKey={'subSkill'}
-                stateId={'skills'}
-                index={index}
-                value={details.skills[index].subSkill}
-              />
+              <div className='mt-4'>
+                <Input
+                  name={'Skill'}
+                  handleInput={handleOtherInput}
+                  stateKey={'skill'}
+                  stateId={'skills'}
+                  index={index}
+                  key={index}
+                  value={details.skills[index].skill}
+                />
+                <Input
+                  name={'Sub-Skills'}
+                  handleInput={handleOtherInput}
+                  stateKey={'subSkill'}
+                  stateId={'skills'}
+                  index={index}
+                  value={details.skills[index].subSkill}
+                />
+              </div>
               <div className="flex justify-start">
                 {lastIndex === index && (
                   <AddButton stateKey={'skills'} handleAdd={handleAdd} />
