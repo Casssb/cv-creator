@@ -6,6 +6,15 @@ A CV creator app with a modular design. Built using React & Tailwind, packaged w
 
 ![Image of live version](./public/lightmode.png)
 
+### Installing and running locally
+
+```bash
+git clone git@github.com:Casssb/cv-creator.git
+cd cv-creator
+npm install
+npm run dev
+```
+
 ## Tech Used
 * React, Tailwind
 * NPM & Vite for build
