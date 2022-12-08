@@ -18,6 +18,10 @@ import {
   randPhrase,
   randVehicleFuel,
   randProductName,
+  randCetacean,
+  randCat,
+  randCrocodilia,
+  randDog,
 } from '@ngneat/falso';
 
 const reset = {
@@ -58,7 +62,7 @@ const demo = () => {
       location: `${randCity()}, ${randCountry()}`,
       github: `github.com/${randAnimalType()}${randAnimalType()}`,
       site: `${randSubscriptionPlan()}${randAnimalType()}.com`,
-      interests: `I'm a long term animal riding aficionado. I like to ride ${randAnimalType()}s, ${randAnimalType()}s and especially ${randAnimalType()}s. My dream is to have one day ridden every type of animal on gods green earth (although not ${randAnimalType()}s, who rides them!)`,
+      interests: `I'm a long term animal riding aficionado. I like to ride ${randDog()}s, ${randCat()} cats and especially ${randCetacean()}s. My dream is to have one day ridden every type of animal on gods green earth (although not ${randCrocodilia()}s, who rides them!)`,
     },
     skills: [
       {
